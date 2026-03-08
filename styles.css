@@ -50,14 +50,24 @@ header,
 
 header {
   padding: 1.6rem 1.5rem 1rem;
-  border-bottom: 1px solid rgba(255,255,255,0.15);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
   position: sticky;
   top: 0;
-  background: linear-gradient(135deg, rgba(9, 52, 101, 0.9), rgba(6, 103, 143, 0.65));
+  background: linear-gradient(135deg, rgba(1, 14, 40, 0.98), rgba(8, 74, 96, 0.85));
   color: #e6f4ff;
-  backdrop-filter: blur(32px);
-  box-shadow: 0 45px 60px rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(34px);
+  box-shadow: 0 45px 70px rgba(0, 0, 0, 0.95);
   z-index: 2;
+  overflow: hidden;
+}
+header::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 8px;
+  pointer-events: none;
+  background: linear-gradient(90deg, rgba(38, 180, 255, 0.4), rgba(0, 0, 0, 0));
+  mix-blend-mode: screen;
 }
 
 header h1 {
