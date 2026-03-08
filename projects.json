@@ -1,0 +1,114 @@
+[
+  {
+    "id": "cam-relay",
+    "name": "Camera Relay + Last Hour Recorder",
+    "status": "running",
+    "summary": "Proxy the Android IP Webcam stream through the Mac so it stays reachable over Tailscale and keep a rolling 1-hour MP4 buffer.",
+    "architecture": "Node/Express relay (8090) proxies IP Webcam endpoints. FFmpeg daemon records 60 x 1-minute clips into ~/Videos/ipwebcam-last-hour and server.js exposes /recordings metadata and raw files.",
+    "techStack": ["Node.js", "Express", "http-proxy-middleware", "ffmpeg"],
+    "links": [
+      { "label": "Relay source", "url": "~/workspace/cam-relay/server.js" },
+      { "label": "Recording script", "url": "~/workspace/cam-relay/record_last_hour.sh" },
+      { "label": "How-to (README)", "url": "~/workspace/cam-relay/README-recording.md" }
+    ],
+    "externalUrls": [
+      { "label": "Relay & recordings (VPN)", "url": "http://100.107.108.42:8090/" }
+    ],
+    "nextSteps": [
+      "Add HLS playlist so phone can scrub the last hour",
+      "Turn recorder into LaunchAgent with restart logic",
+      "Optionally add systemd-style health endpoint"
+    ],
+    "owners": ["Sheffer"],
+    "tags": ["home", "camera", "ops"]
+  },
+  {
+    "id": "stock-dashboard",
+    "name": "Stock Trading Dashboard",
+    "status": "running",
+    "summary": "Real-time market simulator with bot signals, portfolio metrics, and history capture for quick mental models of the strategy.",
+    "architecture": "Express server serves React-ish UI + API endpoints. Background loop fetches prices (Yahoo/stooq), logs metrics, and scaffolds a bot with configurable guards.",
+    "techStack": ["Node.js", "Express", "plain JS frontend"],
+    "links": [
+      { "label": "Server logic", "url": "~/workspace/stock-trading-dashboard/server.js" },
+      { "label": "State snapshot", "url": "~/workspace/stock-trading-dashboard/data/state.json" },
+      { "label": "Public UI", "url": "http://127.0.0.1:8791/" }
+    ],
+    "externalUrls": [
+      { "label": "Dashboard (VPN)", "url": "http://100.107.108.42:8791/" }
+    ],
+    "nextSteps": [
+      "Evaluate real-API throttle tolerance",
+      "Add quick trade buttons via in-dashboard actions",
+      "Wrap UI with status badges (running/backtest)"
+    ],
+    "owners": ["Sheffer"],
+    "tags": ["finance", "dashboard", "simulation"]
+  },
+  {
+    "id": "project-dashboard",
+    "name": "Project HQ Dashboard",
+    "status": "planning",
+    "summary": "Single pane for every active/planned project with links, description, and shortcut to ping this Telegram bot.",
+    "architecture": "Static JSON drives a vanilla JS SPA; each card opens details and includes Telegram share button pre-filling the project name.",
+    "techStack": ["HTML", "CSS", "vanilla JS"],
+    "links": [
+      { "label": "This dashboard", "url": "~/workspace/project-dashboard/index.html" },
+      { "label": "Project data", "url": "~/workspace/project-dashboard/projects.json" }
+    ],
+    "externalUrls": [
+      { "label": "Live UI (VPN)", "url": "http://100.107.108.42:8000/" }
+    ],
+    "nextSteps": [
+      "Add ability to tag projects by priority/owner",
+      "Include heartbeat of external services (relay status, dashboard uptime)",
+      "Extend Telegram action to log state or start timers"
+    ],
+    "owners": ["Sheffer", "DexterAI"],
+    "tags": ["operations", "planning", "tools"]
+  },
+  {
+    "id": "spidey-flight",
+    "name": "Spider-Groove Flight",
+    "status": "running",
+    "summary": "Neon Flappy-Bird tribute where Spider-Man swings through pylons; responsive on mobile and deployed via GitHub Pages.",
+    "architecture": "Canvas + JS loop handles gravity, jumping, and obstacle spawning. Body/touch listeners limited to the canvas so scrolling stays intact and the physics stay smooth.",
+    "techStack": ["HTML5 Canvas", "JavaScript", "CSS"],
+    "links": [
+      { "label": "Repo (local)", "url": "~/workspace/spidey-flight" },
+      { "label": "Live page", "url": "https://dexterai-bot.github.io/spidey-flight/" }
+    ],
+    "externalUrls": [
+      { "label": "Play over the web", "url": "https://dexterai-bot.github.io/spidey-flight/" }
+    ],
+    "nextSteps": [
+      "Add new obstacle patterns",
+      "Refine neon trail FX",
+      "Hit analytics/logging for high scores"
+    ],
+    "owners": ["Sheffer"],
+    "tags": ["game", "canvas", "fun"]
+  },
+  {
+    "id": "rainbow-hop",
+    "name": "Rainbow Hop",
+    "status": "running",
+    "summary": "Kid-friendly vertical jumper with Hebrew guides, sparkly platforms, and celebratory overlays.",
+    "architecture": "Single-page JS game with jump physics, overlay modals for game over/high scores, and touch/mouse handlers scoped to the canvas so scroll keeps working.",
+    "techStack": ["HTML", "Canvas", "JavaScript", "CSS"],
+    "links": [
+      { "label": "Source + assets", "url": "~/workspace/rainbow-hop" },
+      { "label": "Live GitHub page", "url": "https://dexterai-bot.github.io/rainbow-hop/" }
+    ],
+    "externalUrls": [
+      { "label": "Play Rainbow Hop", "url": "https://dexterai-bot.github.io/rainbow-hop/" }
+    ],
+    "nextSteps": [
+      "Add power-ups (double jump)",
+      "Surface Hebrew copy variations",
+      "Track best runs via localStorage"
+    ],
+    "owners": ["Sheffer"],
+    "tags": ["game", "kid-friendly", "creative"]
+  }
+]

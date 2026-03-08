@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Project HQ</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Project HQ</h1>
+      <p>Everything you run or plan, plus one tap to tell the bot what we’re working on next.</p>
+    </header>
+    <div id="filters"></div>
+    <div style="padding: 0 1.5rem 0.5rem">
+      <input id="search-input" placeholder="Search by name, summary, or tag" />
+    </div>
+    <main id="project-grid"></main>
+
+    <div id="detail-panel" class="detail-panel">
+      <div class="card">
+        <button id="close-detail" class="close-btn" aria-label="Close detail">×</button>
+        <div>
+          <div class="status-pill status-running" id="detail-status">Running</div>
+          <h2 id="detail-name">Project</h2>
+        </div>
+        <p id="detail-summary">Summary</p>
+        <div class="detail-row">
+          <div>
+            <h3>Architecture</h3>
+            <p id="detail-architecture"></p>
+          </div>
+          <div>
+            <h3>Tech Stack</h3>
+            <p id="detail-tech"></p>
+          </div>
+        </div>
+        <div>
+          <h3>Links</h3>
+          <ul class="link-list" id="detail-links"></ul>
+        </div>
+        <div>
+          <h3>External URLs</h3>
+          <ul class="link-list" id="detail-external"></ul>
+        </div>
+        <div>
+          <h3>Next steps</h3>
+          <ul id="detail-next"></ul>
+        </div>
+        <div>
+          <h3>Owners</h3>
+          <div class="owners" id="detail-owners"></div>
+        </div>
+        <div>
+          <h3>Tags</h3>
+          <div class="owners" id="detail-tags"></div>
+        </div>
+        <a id="telegram-action" class="tele-button" target="_blank" rel="noreferrer">Ping Telegram</a>
+      </div>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
