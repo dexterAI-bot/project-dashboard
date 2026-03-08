@@ -50,13 +50,13 @@ header,
 
 header {
   padding: 1.6rem 1.5rem 1rem;
-  border-bottom: 1px solid rgba(255,255,255,0.2);
+  border-bottom: 1px solid rgba(255,255,255,0.15);
   position: sticky;
   top: 0;
-  background: linear-gradient(135deg, rgba(67, 213, 255, 0.4), rgba(252, 211, 77, 0.3));
-  color: #fff;
-  backdrop-filter: blur(26px);
-  box-shadow: 0 35px 40px rgba(3, 4, 10, 0.55);
+  background: linear-gradient(135deg, rgba(67, 213, 255, 0.6), rgba(33, 255, 218, 0.4));
+  color: #f2fcff;
+  backdrop-filter: blur(28px);
+  box-shadow: 0 30px 40px rgba(3, 8, 20, 0.45);
   z-index: 2;
 }
 
