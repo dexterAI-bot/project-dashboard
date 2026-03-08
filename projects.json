@@ -114,22 +114,27 @@
   {
     "id": "project-1-english",
     "name": "Project 1 — Kids’ English Coach",
-    "status": "planning",
-    "summary": "PWA for your 7yo: Hebrew UI, micro-games, spaced repetition, parent dashboard, deployed as installable app.",
-    "architecture": "Next.js/Tailwind PWA with offline caching. Local spaced-rep data (Word + review tables) served from SQLite/Supabase, with audio-first interactions and parent portal.",
-    "techStack": ["Next.js", "Tailwind", "PWA", "SQLite"],
+    "status": "running",
+    "summary": "Hebrew-first web app for a 7yo: English word + audio + 4 Hebrew options (no nikud) + per-user progress. Live on Vercel.",
+    "architecture": "Next.js App Router + Tailwind UI. Auth + Postgres via Supabase (profiles + attempts tables, RLS). Deployed on Vercel. Current quiz is a small stub deck; next step is real decks + admin user creation.",
+    "techStack": ["Next.js", "Tailwind", "Supabase Auth", "Supabase Postgres", "Vercel"],
     "links": [
-      { "label": "Research doc", "url": "~/workspace/research/project-1-english-for-kids-hebrew-flow-and-spec.md" },
-      { "label": "Project folder", "url": "~/workspace/project-dashboard" }
+      { "label": "Repo", "url": "https://github.com/dexterAI-bot/kids-english-coach" },
+      { "label": "Live app", "url": "https://kids-english-coach-app.vercel.app" },
+      { "label": "DB schema + RLS", "url": "https://github.com/dexterAI-bot/kids-english-coach/blob/main/supabase.sql" }
     ],
-    "externalUrls": [],
+    "externalUrls": [
+      { "label": "Vercel (production)", "url": "https://kids-english-coach-app.vercel.app" },
+      { "label": "Supabase project", "url": "https://supabase.com/dashboard/project/jbhaleeptrllvlczuobq" }
+    ],
     "nextSteps": [
-      "Pick initial 150-word themes + licensing",
-      "Ship word review loop + 2 practice games",
-      "Build lightweight parent dashboard + offline mode"
+      "Smoke test: signup/login → play quiz → progress visible → admin visible",
+      "Set admin role in profiles for Sheffer (DB-backed admin)",
+      "Add Admin UI: create/manage users (server route using service role key)",
+      "Replace stub words with Level 1 + Level 2 decks + distractor generation"
     ],
-    "owners": ["Sheffer"],
-    "tags": ["education", "pwa", "language"]
+    "owners": ["Sheffer", "DexterAI"],
+    "tags": ["education", "language", "kids", "webapp"]
   },
   {
     "id": "project-2-ai-digest",

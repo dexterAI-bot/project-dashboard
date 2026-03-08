@@ -26,8 +26,11 @@ Central hub for every project you run or plan, with futuristic cards, status fil
 
 ## Automation + skill integration
 
-- The `project-dashboard-updater` skill (located in `skills/project-dashboard-updater/`) wraps the push script. When you invoke `/add-project` or ask the bot to log a new project, the skill gathers the metadata, calls `scripts/add-project-and-push.js`, and reports success/failure.
-- Each update is committed and pushed, so the GitHub Pages site reflects the change almost instantly.
-- The README here doubles as documentation for whoever maintains the repo—just keep `projects.json` and the scripts in sync.
+- Today this repo is updated via the helper scripts in `scripts/` (see above).
+- If/when you want a dedicated OpenClaw skill (e.g. `/projecthq update project-1-english`), we can add a `skills/` folder in this repo or publish a separate skill repo that wraps `scripts/add-project-and-push.js`.
+- The README here doubles as documentation for whoever maintains the repo—keep `projects.json` and the scripts in sync.
 
-Let me know if you want me to add a GitHub Action that regenerates the JSON from structured notes or to extend the skill so it can edit existing entries (e.g., `update project <id>`).
+If you want, I can add:
+- a GitHub Action that validates `projects.json` schema on every push
+- a script to update an existing entry by `id` (not just add)
+- a proper OpenClaw skill wrapper so updates can be done by chat command
