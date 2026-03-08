@@ -331,33 +331,34 @@ header p {
 .tele-button {
   align-self: flex-start;
   margin-top: 0.5rem;
-  background: rgba(67, 213, 255, 0.18);
+  background: linear-gradient(135deg, rgba(10, 24, 54, 0.9), rgba(15, 60, 80, 0.85));
   color: #d4fbff;
   border-radius: 14px;
-  border: 1px solid rgba(67, 213, 255, 0.65);
-  padding: 0.65rem 1.5rem;
+  border: 1px solid rgba(67, 213, 255, 0.5);
+  padding: 0.55rem 1.6rem;
   display: inline-flex;
   align-items: center;
-  gap: 0.4rem;
+  gap: 0.5rem;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.08em;
   cursor: pointer;
-  transition: transform 150ms ease, box-shadow 150ms ease;
+  transition: transform 150ms ease, box-shadow 150ms ease, border 150ms ease;
   position: relative;
   overflow: hidden;
 }
 
 .tele-button:hover {
   transform: translateY(-2px);
-  box-shadow: 0 10px 30px rgba(67, 213, 255, 0.5);
+  box-shadow: 0 10px 30px rgba(0, 255, 214, 0.35);
+  border-color: rgba(30, 255, 210, 0.9);
 }
 
 .tele-button::after {
   content: '';
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at top right, rgba(67, 213, 255, 0.35), transparent 45%);
+  background: radial-gradient(circle at top right, rgba(30, 255, 210, 0.25), transparent 50%);
   opacity: 0;
   transition: opacity 180ms ease;
 }
@@ -366,24 +367,31 @@ header p {
   opacity: 1;
 }
 
+.tele-icon-wrap {
+  width: 24px;
+  height: 24px;
+  border-radius: 999px;
+  background: radial-gradient(circle, rgba(30, 255, 210, 0.9), rgba(3, 8, 18, 0.5));
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 0 12px rgba(30, 255, 210, 0.7);
+}
+
 .tele-icon {
   width: 18px;
   height: 18px;
-  fill: #9ef5ff;
-  filter: drop-shadow(0 0 5px rgba(67, 213, 255, 0.8));
-}
-
-.tele-button span {
-  display: inline-flex;
-  align-items: center;
+  fill: #fff;
+  filter: drop-shadow(0 0 6px rgba(30, 255, 210, 0.9));
 }
 
 .tele-dot {
-  width: 12px;
-  height: 12px;
+  width: 10px;
+  height: 10px;
   border-radius: 999px;
-  background: rgba(67, 213, 255, 0.9);
-  box-shadow: 0 0 10px rgba(67, 213, 255, 0.8);
+  background: rgba(255, 255, 255, 0.75);
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
 }
 
 .close-btn {
