@@ -53,10 +53,10 @@ header {
   border-bottom: 1px solid rgba(255,255,255,0.15);
   position: sticky;
   top: 0;
-  background: linear-gradient(135deg, rgba(67, 213, 255, 0.6), rgba(33, 255, 218, 0.4));
-  color: #f2fcff;
-  backdrop-filter: blur(28px);
-  box-shadow: 0 30px 40px rgba(3, 8, 20, 0.45);
+  background: linear-gradient(135deg, rgba(36, 130, 255, 0.75), rgba(24, 184, 172, 0.5));
+  color: #eaf7ff;
+  backdrop-filter: blur(30px);
+  box-shadow: 0 40px 50px rgba(1, 2, 8, 0.6);
   z-index: 2;
 }
 
