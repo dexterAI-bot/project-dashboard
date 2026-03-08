@@ -18,18 +18,12 @@ body {
   margin: 0;
   font-family: "Space Grotesk", system-ui, sans-serif;
   min-height: 100vh;
-  background: radial-gradient(circle at top right, rgba(252, 211, 77, 0.25), transparent 40%),
-    radial-gradient(circle at 20% 20%, rgba(67, 213, 255, 0.3), transparent 45%),
-    #050b18;
-  color: #f6f7ff;
-  position: relative;
-  overflow-x: hidden;
-}
-
-body.theme-alt {
   background: radial-gradient(circle at 120% 20%, rgba(0, 0, 0, 0.7), transparent 40%),
     radial-gradient(circle at 80% 80%, rgba(20, 120, 230, 0.25), transparent 35%),
     linear-gradient(180deg, #0b0f1c, #020409);
+  color: #f6f7ff;
+  position: relative;
+  overflow-x: hidden;
 }
 
 body::before {
@@ -140,9 +134,14 @@ header p {
   padding: 1rem 1.5rem;
 }
 
+.search-wrap {
+  padding: 0 1.5rem 1rem;
+  max-width: 920px;
+  margin: 0 auto 0;
+}
+
 #search-input {
   width: 100%;
-  margin: 0 1.5rem 1rem;
   background: var(--surface);
   color: #f4f7ff;
   border: 1px solid var(--border);
@@ -259,6 +258,7 @@ body.theme-alt .project-card {
   display: flex;
   gap: 0.45rem;
   flex-wrap: wrap;
+  margin-bottom: 0.35rem;
 }
 
 .owner-chip {
@@ -278,11 +278,11 @@ body.theme-alt .project-card {
 }
 
 .project-card button {
-  margin-top: auto;
+  margin-top: 1rem;
   border: none;
-  padding: 0.5rem 1rem;
+  padding: 0.65rem 1rem;
   border-radius: 10px;
-  background: rgba(67, 213, 255, 0.1);
+  background: rgba(67, 213, 255, 0.12);
   color: var(--accent);
   font-weight: 600;
   cursor: pointer;

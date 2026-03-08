@@ -123,22 +123,6 @@ searchInput.addEventListener('input', () => {
   renderProjects();
 });
 
-const themeSwitch = document.getElementById('theme-switch');
-
-function applyTheme(name) {
-  document.body.classList.remove('theme-default', 'theme-alt');
-  document.body.classList.add(name === 'alt' ? 'theme-alt' : 'theme-default');
-  themeSwitch.querySelectorAll('button').forEach((btn) => {
-    btn.classList.toggle('active', btn.dataset.theme === name);
-  });
-  localStorage.setItem('project-dashboard-theme', name);
-}
-
-themeSwitch?.addEventListener('click', (event) => {
-  const btn = event.target.closest('button[data-theme]');
-  if (!btn) return;
-  applyTheme(btn.dataset.theme);
-});
 
 async function init() {
   try {
@@ -150,9 +134,7 @@ async function init() {
     return;
   }
 
-  const savedTheme = localStorage.getItem('project-dashboard-theme') || 'default';
-  applyTheme(savedTheme);
-
+  document.body.classList.add('theme-alt');
   renderFilters();
   renderProjects();
 }
