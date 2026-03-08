@@ -331,15 +331,59 @@ header p {
 .tele-button {
   align-self: flex-start;
   margin-top: 0.5rem;
-  background: var(--accent-strong);
-  color: #05070f;
-  font-weight: 700;
-  border-radius: 12px;
-  padding: 0.85rem 1.4rem;
+  background: rgba(67, 213, 255, 0.18);
+  color: #d4fbff;
+  border-radius: 14px;
+  border: 1px solid rgba(67, 213, 255, 0.65);
+  padding: 0.65rem 1.5rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.04em;
-  border: none;
+  letter-spacing: 0.08em;
   cursor: pointer;
+  transition: transform 150ms ease, box-shadow 150ms ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.tele-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(67, 213, 255, 0.5);
+}
+
+.tele-button::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at top right, rgba(67, 213, 255, 0.35), transparent 45%);
+  opacity: 0;
+  transition: opacity 180ms ease;
+}
+
+.tele-button:hover::after {
+  opacity: 1;
+}
+
+.tele-icon {
+  width: 18px;
+  height: 18px;
+  fill: #9ef5ff;
+  filter: drop-shadow(0 0 5px rgba(67, 213, 255, 0.8));
+}
+
+.tele-button span {
+  display: inline-flex;
+  align-items: center;
+}
+
+.tele-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 999px;
+  background: rgba(67, 213, 255, 0.9);
+  box-shadow: 0 0 10px rgba(67, 213, 255, 0.8);
 }
 
 .close-btn {
