@@ -126,7 +126,9 @@ searchInput.addEventListener('input', () => {
 
 async function init() {
   try {
-    const response = await fetch('projects.json');
+    // iOS Home Screen shortcuts (standalone mode) can be extremely aggressive with caching.
+    // Bust cache explicitly so updates to projects.json show up immediately.
+    const response = await fetch(`projects.json?v=${Date.now()}`, { cache: 'no-store' });
     projects = await response.json();
   } catch (error) {
     projectGrid.innerHTML = `<p style="color: var(--muted);">Unable to load projects list.</p>`;
