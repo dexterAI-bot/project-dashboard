@@ -53,12 +53,30 @@ header {
   border-bottom: 1px solid rgba(255, 255, 255, 0.12);
   position: sticky;
   top: 0;
-  background: linear-gradient(135deg, rgba(1, 14, 40, 0.98), rgba(8, 74, 96, 0.85));
+  background: #03060f;
   color: #e6f4ff;
   backdrop-filter: blur(34px);
   box-shadow: 0 45px 70px rgba(0, 0, 0, 0.95);
   z-index: 2;
   overflow: hidden;
+}
+header::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, rgba(18, 22, 79, 0.8), rgba(8, 40, 69, 0.9) 55%, rgba(4, 24, 42, 0.85));
+  mix-blend-mode: screen;
+  opacity: 0.9;
+}
+header::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, rgba(66, 210, 255, 0.5), rgba(30, 255, 210, 0.4));
+  filter: blur(18px);
+  opacity: 0.6;
+  z-index: -1;
 }
 header::after {
   content: '';
