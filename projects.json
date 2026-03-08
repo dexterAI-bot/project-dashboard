@@ -110,5 +110,44 @@
     ],
     "owners": ["Sheffer"],
     "tags": ["game", "kid-friendly", "creative"]
+  },
+  {
+    "id": "project-1-english",
+    "name": "Project 1 — Kids’ English Coach",
+    "status": "planning",
+    "summary": "PWA for your 7yo: Hebrew UI, micro-games, spaced repetition, parent dashboard, deployed as installable app.",
+    "architecture": "Next.js/Tailwind PWA with offline caching. Local spaced-rep data (Word + review tables) served from SQLite/Supabase, with audio-first interactions and parent portal.",
+    "techStack": ["Next.js", "Tailwind", "PWA", "SQLite"],
+    "links": [
+      { "label": "Research doc", "url": "~/workspace/research/project-1-english-for-kids-hebrew-flow-and-spec.md" },
+      { "label": "Project folder", "url": "~/workspace/project-dashboard" }
+    ],
+    "externalUrls": [],
+    "nextSteps": [
+      "Pick initial 150-word themes + licensing",
+      "Ship word review loop + 2 practice games",
+      "Build lightweight parent dashboard + offline mode"
+    ],
+    "owners": ["Sheffer"],
+    "tags": ["education", "pwa", "language"]
+  },
+  {
+    "id": "project-2-ai-digest",
+    "name": "Project 2 — AI Tech Lead Digest",
+    "status": "planning",
+    "summary": "RSS + changelog digest pipeline for 2×/week alerts: clusters + summarize news, deliver via Telegram + archive to Markdown.",
+    "architecture": "Node.js script + SQLite cache + cron launches. Optional LLM summarizer/embeddings, Telegram + Markdown outputs, break alerts when needed.",
+    "techStack": ["Node.js", "SQLite", "Telegram API", "LLM"],
+    "links": [
+      { "label": "Research doc", "url": "~/workspace/research/project-2-ai-dev-trends-digest-plan.md" }
+    ],
+    "externalUrls": [],
+    "nextSteps": [
+      "Choose ~20 high-signal feeds and delivery cadence",
+      "Build ingest/dedupe/summarize pipeline",
+      "Wire Telegram + archive scripts + scheduler"
+    ],
+    "owners": ["Sheffer"],
+    "tags": ["research", "digest", "automation"]
   }
 ]
