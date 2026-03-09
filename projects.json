@@ -312,10 +312,10 @@
       }
     ],
     "nextSteps": [
-      "Pick final game name + visual theme",
-      "Implement mission engine (Find/Open/Follow/Movement/Turn-taking)",
-      "Add 4 worlds: Pirate Bay, Magic Castle, Jungle Island, Space Station",
-      "Wire Supabase Auth (shared) + progress events with app_id=spoken-adventure"
+      "Add progress tracking (per mission and per world) with simple local save, then wire Supabase app_id=spoken-adventure",
+      "Build world pack #2 (Magic Castle) using the same SEE→HEAR→DO→SAY content schema",
+      "Add richer SAY feedback (stars/confetti timing + optional recorded voice in future phase)",
+      "Add parent/admin content editor for mission text and action choices"
     ],
     "owners": [
       "Sheffer",
