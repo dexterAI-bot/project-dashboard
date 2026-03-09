@@ -5,22 +5,49 @@
     "status": "running",
     "summary": "Proxy the Android IP Webcam stream through the Mac so it stays reachable over Tailscale and keep a rolling 1-hour MP4 buffer.",
     "architecture": "Node/Express relay (8090) proxies IP Webcam endpoints. FFmpeg daemon records 60 x 1-minute clips into ~/Videos/ipwebcam-last-hour and server.js exposes /recordings metadata and raw files.",
-    "techStack": ["Node.js", "Express", "http-proxy-middleware", "ffmpeg"],
+    "techStack": [
+      "Node.js",
+      "Express",
+      "http-proxy-middleware",
+      "ffmpeg"
+    ],
     "links": [
-      { "label": "Relay source", "url": "~/workspace/cam-relay/server.js" },
-      { "label": "Recording script", "url": "~/workspace/cam-relay/record_last_hour.sh" },
-      { "label": "How-to (README)", "url": "~/workspace/cam-relay/README-recording.md" }
+      {
+        "label": "GitHub repo",
+        "url": "https://github.com/dexterAI-bot/cam-relay"
+      },
+      {
+        "label": "Relay source",
+        "url": "https://github.com/dexterAI-bot/cam-relay/blob/main/server.js"
+      },
+      {
+        "label": "Recording script",
+        "url": "https://github.com/dexterAI-bot/cam-relay/blob/main/record_last_hour.sh"
+      },
+      {
+        "label": "How-to (README)",
+        "url": "https://github.com/dexterAI-bot/cam-relay/blob/main/README-recording.md"
+      }
     ],
     "externalUrls": [
-      { "label": "Relay & recordings (VPN)", "url": "http://100.107.108.42:8090/" }
+      {
+        "label": "Relay & recordings (VPN)",
+        "url": "http://100.107.108.42:8090/"
+      }
     ],
     "nextSteps": [
       "Add HLS playlist so phone can scrub the last hour",
       "Turn recorder into LaunchAgent with restart logic",
       "Optionally add systemd-style health endpoint"
     ],
-    "owners": ["Sheffer"],
-    "tags": ["home", "camera", "ops"]
+    "owners": [
+      "Sheffer"
+    ],
+    "tags": [
+      "home",
+      "camera",
+      "ops"
+    ]
   },
   {
     "id": "stock-dashboard",
@@ -28,22 +55,48 @@
     "status": "running",
     "summary": "Real-time market simulator with bot signals, portfolio metrics, and history capture for quick mental models of the strategy.",
     "architecture": "Express server serves React-ish UI + API endpoints. Background loop fetches prices (Yahoo/stooq), logs metrics, and scaffolds a bot with configurable guards.",
-    "techStack": ["Node.js", "Express", "plain JS frontend"],
+    "techStack": [
+      "Node.js",
+      "Express",
+      "plain JS frontend"
+    ],
     "links": [
-      { "label": "Server logic", "url": "~/workspace/stock-trading-dashboard/server.js" },
-      { "label": "State snapshot", "url": "~/workspace/stock-trading-dashboard/data/state.json" },
-      { "label": "Public UI", "url": "http://127.0.0.1:8791/" }
+      {
+        "label": "GitHub repo",
+        "url": "https://github.com/dexterAI-bot/stock-trading-dashboard"
+      },
+      {
+        "label": "Server logic",
+        "url": "https://github.com/dexterAI-bot/stock-trading-dashboard/blob/main/server.js"
+      },
+      {
+        "label": "State snapshot",
+        "url": "https://github.com/dexterAI-bot/stock-trading-dashboard/blob/main/data/state.json"
+      },
+      {
+        "label": "Public UI",
+        "url": "http://127.0.0.1:8791/"
+      }
     ],
     "externalUrls": [
-      { "label": "Dashboard (VPN)", "url": "http://100.107.108.42:8791/" }
+      {
+        "label": "Dashboard (VPN)",
+        "url": "http://100.107.108.42:8791/"
+      }
     ],
     "nextSteps": [
       "Evaluate real-API throttle tolerance",
       "Add quick trade buttons via in-dashboard actions",
       "Wrap UI with status badges (running/backtest)"
     ],
-    "owners": ["Sheffer"],
-    "tags": ["finance", "dashboard", "simulation"]
+    "owners": [
+      "Sheffer"
+    ],
+    "tags": [
+      "finance",
+      "dashboard",
+      "simulation"
+    ]
   },
   {
     "id": "project-dashboard",
@@ -51,22 +104,45 @@
     "status": "planning",
     "summary": "Single pane for every active/planned project with links, description, and shortcut to ping this Telegram bot.",
     "architecture": "Static JSON drives a vanilla JS SPA; each card opens details and includes Telegram share button pre-filling the project name.",
-    "techStack": ["HTML", "CSS", "vanilla JS"],
+    "techStack": [
+      "HTML",
+      "CSS",
+      "vanilla JS"
+    ],
     "links": [
-      { "label": "GitHub repo", "url": "https://github.com/dexterAI-bot/project-dashboard" },
-      { "label": "Live dashboard", "url": "https://dexterai-bot.github.io/project-dashboard/" },
-      { "label": "Project data (projects.json)", "url": "https://github.com/dexterAI-bot/project-dashboard/blob/main/projects.json" }
+      {
+        "label": "GitHub repo",
+        "url": "https://github.com/dexterAI-bot/project-dashboard"
+      },
+      {
+        "label": "Live dashboard",
+        "url": "https://dexterai-bot.github.io/project-dashboard/"
+      },
+      {
+        "label": "Project data (projects.json)",
+        "url": "https://github.com/dexterAI-bot/project-dashboard/blob/main/projects.json"
+      }
     ],
     "externalUrls": [
-      { "label": "Live dashboard", "url": "https://dexterai-bot.github.io/project-dashboard/" }
+      {
+        "label": "Live dashboard",
+        "url": "https://dexterai-bot.github.io/project-dashboard/"
+      }
     ],
     "nextSteps": [
       "Add ability to tag projects by priority/owner",
       "Include heartbeat of external services (relay status, dashboard uptime)",
       "Extend Telegram action to log state or start timers"
     ],
-    "owners": ["Sheffer", "DexterAI"],
-    "tags": ["operations", "planning", "tools"]
+    "owners": [
+      "Sheffer",
+      "DexterAI"
+    ],
+    "tags": [
+      "operations",
+      "planning",
+      "tools"
+    ]
   },
   {
     "id": "spidey-flight",
@@ -74,21 +150,40 @@
     "status": "running",
     "summary": "Neon Flappy-Bird tribute where Spider-Man swings through pylons; responsive on mobile and deployed via GitHub Pages.",
     "architecture": "Canvas + JS loop handles gravity, jumping, and obstacle spawning. Body/touch listeners limited to the canvas so scrolling stays intact and the physics stay smooth.",
-    "techStack": ["HTML5 Canvas", "JavaScript", "CSS"],
+    "techStack": [
+      "HTML5 Canvas",
+      "JavaScript",
+      "CSS"
+    ],
     "links": [
-      { "label": "GitHub repo", "url": "https://github.com/dexterAI-bot/spidey-flight" },
-      { "label": "Live page", "url": "https://dexterai-bot.github.io/spidey-flight/" }
+      {
+        "label": "GitHub repo",
+        "url": "https://github.com/dexterAI-bot/spidey-flight"
+      },
+      {
+        "label": "Live page",
+        "url": "https://dexterai-bot.github.io/spidey-flight/"
+      }
     ],
     "externalUrls": [
-      { "label": "Play over the web", "url": "https://dexterai-bot.github.io/spidey-flight/" }
+      {
+        "label": "Play over the web",
+        "url": "https://dexterai-bot.github.io/spidey-flight/"
+      }
     ],
     "nextSteps": [
       "Add new obstacle patterns",
       "Refine neon trail FX",
       "Hit analytics/logging for high scores"
     ],
-    "owners": ["Sheffer"],
-    "tags": ["game", "canvas", "fun"]
+    "owners": [
+      "Sheffer"
+    ],
+    "tags": [
+      "game",
+      "canvas",
+      "fun"
+    ]
   },
   {
     "id": "rainbow-hop",
@@ -96,21 +191,41 @@
     "status": "running",
     "summary": "Kid-friendly vertical jumper with Hebrew guides, sparkly platforms, and celebratory overlays.",
     "architecture": "Single-page JS game with jump physics, overlay modals for game over/high scores, and touch/mouse handlers scoped to the canvas so scroll keeps working.",
-    "techStack": ["HTML", "Canvas", "JavaScript", "CSS"],
+    "techStack": [
+      "HTML",
+      "Canvas",
+      "JavaScript",
+      "CSS"
+    ],
     "links": [
-      { "label": "GitHub repo", "url": "https://github.com/dexterAI-bot/rainbow-hop" },
-      { "label": "Live GitHub page", "url": "https://dexterai-bot.github.io/rainbow-hop/" }
+      {
+        "label": "GitHub repo",
+        "url": "https://github.com/dexterAI-bot/rainbow-hop"
+      },
+      {
+        "label": "Live GitHub page",
+        "url": "https://dexterai-bot.github.io/rainbow-hop/"
+      }
     ],
     "externalUrls": [
-      { "label": "Play Rainbow Hop", "url": "https://dexterai-bot.github.io/rainbow-hop/" }
+      {
+        "label": "Play Rainbow Hop",
+        "url": "https://dexterai-bot.github.io/rainbow-hop/"
+      }
     ],
     "nextSteps": [
       "Add power-ups (double jump)",
       "Surface Hebrew copy variations",
       "Track best runs via localStorage"
     ],
-    "owners": ["Sheffer"],
-    "tags": ["game", "kid-friendly", "creative"]
+    "owners": [
+      "Sheffer"
+    ],
+    "tags": [
+      "game",
+      "kid-friendly",
+      "creative"
+    ]
   },
   {
     "id": "project-1-english",
@@ -118,15 +233,36 @@
     "status": "running",
     "summary": "Hebrew-first web app for a 7yo: English word + audio + 4 Hebrew options (no nikud) + per-user progress. Live on Vercel (auth working).",
     "architecture": "Next.js App Router + Tailwind UI. Auth + Postgres via Supabase (profiles + attempts tables, RLS) with proper email redirect callback route (/auth/callback) on the deployed domain. Deployed on Vercel. Current quiz is a small stub deck; next step is real decks + admin user creation.",
-    "techStack": ["Next.js", "Tailwind", "Supabase Auth", "Supabase Postgres", "Vercel"],
+    "techStack": [
+      "Next.js",
+      "Tailwind",
+      "Supabase Auth",
+      "Supabase Postgres",
+      "Vercel"
+    ],
     "links": [
-      { "label": "Repo", "url": "https://github.com/dexterAI-bot/kids-english-coach" },
-      { "label": "Live app", "url": "https://kids-english-coach-app.vercel.app" },
-      { "label": "DB schema + RLS", "url": "https://github.com/dexterAI-bot/kids-english-coach/blob/main/supabase.sql" }
+      {
+        "label": "Repo",
+        "url": "https://github.com/dexterAI-bot/kids-english-coach"
+      },
+      {
+        "label": "Live app",
+        "url": "https://kids-english-coach-app.vercel.app"
+      },
+      {
+        "label": "DB schema + RLS",
+        "url": "https://github.com/dexterAI-bot/kids-english-coach/blob/main/supabase.sql"
+      }
     ],
     "externalUrls": [
-      { "label": "Vercel (production)", "url": "https://kids-english-coach-app.vercel.app" },
-      { "label": "Supabase project", "url": "https://supabase.com/dashboard/project/jbhaleeptrllvlczuobq" }
+      {
+        "label": "Vercel (production)",
+        "url": "https://kids-english-coach-app.vercel.app"
+      },
+      {
+        "label": "Supabase project",
+        "url": "https://supabase.com/dashboard/project/jbhaleeptrllvlczuobq"
+      }
     ],
     "nextSteps": [
       "Promote Sheffer to admin in profiles.role (DB-backed admin, remove email shortcut later)",
@@ -134,8 +270,16 @@
       "Replace stub words with Level 1 + Level 2 decks + distractor generation",
       "Kid-friendly UI polish (bigger buttons, animations, audio UX)"
     ],
-    "owners": ["Sheffer", "DexterAI"],
-    "tags": ["education", "language", "kids", "webapp"]
+    "owners": [
+      "Sheffer",
+      "DexterAI"
+    ],
+    "tags": [
+      "education",
+      "language",
+      "kids",
+      "webapp"
+    ]
   },
   {
     "id": "project-2-ai-digest",
@@ -143,9 +287,17 @@
     "status": "planning",
     "summary": "RSS + changelog digest pipeline for 2×/week alerts: clusters + summarize news, deliver via Telegram + archive to Markdown.",
     "architecture": "Node.js script + SQLite cache + cron launches. Optional LLM summarizer/embeddings, Telegram + Markdown outputs, break alerts when needed.",
-    "techStack": ["Node.js", "SQLite", "Telegram API", "LLM"],
+    "techStack": [
+      "Node.js",
+      "SQLite",
+      "Telegram API",
+      "LLM"
+    ],
     "links": [
-      { "label": "Research doc", "url": "~/workspace/research/project-2-ai-dev-trends-digest-plan.md" }
+      {
+        "label": "Research doc",
+        "url": "~/workspace/research/project-2-ai-dev-trends-digest-plan.md"
+      }
     ],
     "externalUrls": [],
     "nextSteps": [
@@ -153,7 +305,13 @@
       "Build ingest/dedupe/summarize pipeline",
       "Wire Telegram + archive scripts + scheduler"
     ],
-    "owners": ["Sheffer"],
-    "tags": ["research", "digest", "automation"]
+    "owners": [
+      "Sheffer"
+    ],
+    "tags": [
+      "research",
+      "digest",
+      "automation"
+    ]
   }
 ]
