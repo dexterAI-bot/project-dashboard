@@ -92,12 +92,56 @@ function showProjectDetail(project) {
   detailSummary.textContent = project.summary;
   detailArch.textContent = project.architecture;
   detailTech.textContent = project.techStack.join(' · ');
-  detailLinks.innerHTML = project.links
-    .map((link) => `<li><a href="${link.url}" target="_blank" rel="noreferrer">${link.label}</a></li>`)
-    .join('');
+  function isHttpUrl(url) {
+    return /^https?:\/\//i.test(url);
+  }
+
+  function renderLinkItem(link) {
+    const url = String(link.url || '');
+    const label = String(link.label || url);
+
+    // Local workspace paths like ~/workspace/... are not reachable from GitHub Pages.
+    // Render them as copyable text instead of broken links.
+    if (url.startsWith('~/') || url.startsWith('/Users/') || url.startsWith('./') || url.startsWith('../')) {
+      const safe = url.replace(/"/g, '&quot;');
+      return `
+        <li class="link-item">
+          <span class="link-label">${label}:</span>
+          <code class="local-path">${safe}</code>
+          <button class="copy-btn" data-copy="${safe}">Copy</button>
+        </li>
+      `.trim();
+    }
+
+    if (isHttpUrl(url)) {
+      return `<li class="link-item"><a href="${url}" target="_blank" rel="noreferrer">${label}</a></li>`;
+    }
+
+    // Unknown scheme: render as plain text
+    return `<li class="link-item"><span>${label}: ${url}</span></li>`;
+  }
+
+  detailLinks.innerHTML = (project.links || []).map(renderLinkItem).join('') || '<li><em>No links configured.</em></li>';
+
   detailExternal.innerHTML = (project.externalUrls || [])
-    .map((link) => `<li><a href="${link.url}" target="_blank" rel="noreferrer">${link.label}</a></li>`)
+    .map((link) => `<li class="link-item"><a href="${link.url}" target="_blank" rel="noreferrer">${link.label}</a></li>`)
     .join('') || '<li><em>No external URL configured.</em></li>';
+
+  // Wire copy buttons
+  detailLinks.querySelectorAll('button.copy-btn[data-copy]').forEach((btn) => {
+    btn.addEventListener('click', async () => {
+      const text = btn.getAttribute('data-copy');
+      if (!text) return;
+      try {
+        await navigator.clipboard.writeText(text);
+        btn.textContent = 'Copied';
+        setTimeout(() => (btn.textContent = 'Copy'), 1200);
+      } catch {
+        // Fallback
+        prompt('Copy this path:', text);
+      }
+    });
+  });
   detailNext.innerHTML = project.nextSteps.map((step) => `<li>${step}</li>`).join('');
   detailOwners.innerHTML = project.owners
     .map((owner) => `<span class="owner-chip">${owner}</span>`)
