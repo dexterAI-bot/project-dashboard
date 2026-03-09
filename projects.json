@@ -53,11 +53,12 @@
     "architecture": "Static JSON drives a vanilla JS SPA; each card opens details and includes Telegram share button pre-filling the project name.",
     "techStack": ["HTML", "CSS", "vanilla JS"],
     "links": [
-      { "label": "This dashboard", "url": "~/workspace/project-dashboard/index.html" },
-      { "label": "Project data", "url": "~/workspace/project-dashboard/projects.json" }
+      { "label": "GitHub repo", "url": "https://github.com/dexterAI-bot/project-dashboard" },
+      { "label": "Live dashboard", "url": "https://dexterai-bot.github.io/project-dashboard/" },
+      { "label": "Project data (projects.json)", "url": "https://github.com/dexterAI-bot/project-dashboard/blob/main/projects.json" }
     ],
     "externalUrls": [
-      { "label": "Live UI (VPN)", "url": "http://100.107.108.42:8000/" }
+      { "label": "Live dashboard", "url": "https://dexterai-bot.github.io/project-dashboard/" }
     ],
     "nextSteps": [
       "Add ability to tag projects by priority/owner",
