@@ -75,7 +75,7 @@
     "architecture": "Canvas + JS loop handles gravity, jumping, and obstacle spawning. Body/touch listeners limited to the canvas so scrolling stays intact and the physics stay smooth.",
     "techStack": ["HTML5 Canvas", "JavaScript", "CSS"],
     "links": [
-      { "label": "Repo (local)", "url": "~/workspace/spidey-flight" },
+      { "label": "GitHub repo", "url": "https://github.com/dexterAI-bot/spidey-flight" },
       { "label": "Live page", "url": "https://dexterai-bot.github.io/spidey-flight/" }
     ],
     "externalUrls": [
@@ -97,7 +97,7 @@
     "architecture": "Single-page JS game with jump physics, overlay modals for game over/high scores, and touch/mouse handlers scoped to the canvas so scroll keeps working.",
     "techStack": ["HTML", "Canvas", "JavaScript", "CSS"],
     "links": [
-      { "label": "Source + assets", "url": "~/workspace/rainbow-hop" },
+      { "label": "GitHub repo", "url": "https://github.com/dexterAI-bot/rainbow-hop" },
       { "label": "Live GitHub page", "url": "https://dexterai-bot.github.io/rainbow-hop/" }
     ],
     "externalUrls": [
