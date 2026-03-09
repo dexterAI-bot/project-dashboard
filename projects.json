@@ -284,7 +284,7 @@
   },
   {
     "id": "spoken-adventure",
-    "name": "Project 2 — Spoken Adventure (English Acquisition 5–6)",
+    "name": "Project 3 — Spoken Adventure (English Acquisition 5–6)",
     "status": "running",
     "summary": "Interactive audio-driven adventure game for ages 5–6 (pre-readers). English is the world language: SEE → HEAR → DO → SAY. MVP scaffold deployed; next: mission engine + 4 worlds.",
     "architecture": "Next.js + Tailwind mobile-first. Content-driven mission engine (worlds/chapters/missions/phrases). Web Speech for TTS (MVP). Shared Supabase Auth planned (Option A) using app_id scoping for progress.",
