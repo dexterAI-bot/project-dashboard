@@ -232,7 +232,7 @@
     "name": "Project 1 — Kids’ English Coach",
     "status": "running",
     "summary": "Hebrew-first web app for a 7yo: English word + audio + 4 Hebrew options (no nikud) + per-user progress. Live on Vercel (auth working).",
-    "architecture": "Next.js App Router + Tailwind UI. Auth + Postgres via Supabase (profiles + attempts tables, RLS) with proper email redirect callback route (/auth/callback) on the deployed domain. Deployed on Vercel. Current quiz is a small stub deck; next step is real decks + admin user creation.",
+    "architecture": "Next.js App Router + Tailwind UI. Auth + Postgres via Supabase (profiles + attempts tables, RLS) with proper email redirect callback route (/auth/callback) on the deployed domain. Deployed on Vercel. Deck-based quiz + admin create-user route shipped; UI is pastel & kid-friendly.",
     "techStack": [
       "Next.js",
       "Tailwind",
@@ -265,10 +265,11 @@
       }
     ],
     "nextSteps": [
+      "Run Supabase migration: add attempts.app_id (see repo supabase-migrations) so multiple apps can share auth",
       "Promote Sheffer to admin in profiles.role (DB-backed admin, remove email shortcut later)",
-      "Add Admin UI: create/manage users (server route using service role key)",
-      "Replace stub words with Level 1 + Level 2 decks + distractor generation",
-      "Kid-friendly UI polish (bigger buttons, animations, audio UX)"
+      "Harden admin: restrict /api/admin/create-user to admin role",
+      "Add visual deck cards (instead of dropdown) + small animations",
+      "Expand Level 2 content (verbs/adjectives)"
     ],
     "owners": [
       "Sheffer",
