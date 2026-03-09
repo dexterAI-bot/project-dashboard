@@ -459,6 +459,91 @@ body.theme-alt .detail-panel .card {
   cursor: pointer;
 }
 
+/* --- Auth overlay (non-blocking mock for now) --- */
+#auth-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.auth-card {
+  width: min(520px, calc(100vw - 32px));
+  border-radius: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(10, 14, 22, 0.92);
+  padding: 22px;
+  box-shadow: 0 18px 60px rgba(0,0,0,0.55);
+}
+
+.auth-title {
+  font-size: 26px;
+  font-weight: 700;
+}
+
+.auth-subtitle {
+  margin-top: 4px;
+  color: var(--muted);
+}
+
+.auth-body {
+  margin-top: 14px;
+}
+
+.auth-note {
+  color: var(--muted);
+  font-size: 0.95rem;
+  margin: 0 0 12px;
+}
+
+.auth-label {
+  display: block;
+  font-size: 0.9rem;
+  color: rgba(255,255,255,0.85);
+  margin-bottom: 6px;
+}
+
+.auth-input {
+  width: 100%;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.14);
+  background: rgba(255,255,255,0.06);
+  color: white;
+  padding: 12px 12px;
+  outline: none;
+}
+
+.auth-row {
+  display: flex;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.auth-btn {
+  flex: 1;
+  border: 1px solid rgba(255,255,255,0.14);
+  background: rgba(26, 115, 232, 0.9);
+  color: white;
+  border-radius: 12px;
+  padding: 10px 12px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.auth-btn.secondary {
+  background: rgba(255,255,255,0.06);
+}
+
+.auth-error {
+  margin-top: 10px;
+  color: #ff7a7a;
+  font-size: 0.92rem;
+}
+
 .link-item {
   display: flex;
   gap: 0.5rem;
