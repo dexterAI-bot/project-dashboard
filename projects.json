@@ -283,6 +283,53 @@
     ]
   },
   {
+    "id": "spoken-adventure",
+    "name": "Project 2 — Spoken Adventure (English Acquisition 5–6)",
+    "status": "running",
+    "summary": "Interactive audio-driven adventure game for ages 5–6 (pre-readers). English is the world language: SEE → HEAR → DO → SAY. MVP scaffold deployed; next: mission engine + 4 worlds.",
+    "architecture": "Next.js + Tailwind mobile-first. Content-driven mission engine (worlds/chapters/missions/phrases). Web Speech for TTS (MVP). Shared Supabase Auth planned (Option A) using app_id scoping for progress.",
+    "techStack": [
+      "Next.js",
+      "Tailwind",
+      "Web Speech API (TTS)",
+      "Vercel",
+      "Supabase Auth (shared)"
+    ],
+    "links": [
+      {
+        "label": "Repo",
+        "url": "https://github.com/dexterAI-bot/spoken-adventure"
+      },
+      {
+        "label": "Live app",
+        "url": "https://spoken-adventure.vercel.app"
+      }
+    ],
+    "externalUrls": [
+      {
+        "label": "Vercel (production)",
+        "url": "https://spoken-adventure.vercel.app"
+      }
+    ],
+    "nextSteps": [
+      "Pick final game name + visual theme",
+      "Implement mission engine (Find/Open/Follow/Movement/Turn-taking)",
+      "Add 4 worlds: Pirate Bay, Magic Castle, Jungle Island, Space Station",
+      "Wire Supabase Auth (shared) + progress events with app_id=spoken-adventure"
+    ],
+    "owners": [
+      "Sheffer",
+      "DexterAI"
+    ],
+    "tags": [
+      "kids",
+      "game",
+      "language",
+      "audio-first",
+      "adventure"
+    ]
+  },
+  {
     "id": "project-2-ai-digest",
     "name": "Project 2 — AI Tech Lead Digest",
     "status": "planning",
