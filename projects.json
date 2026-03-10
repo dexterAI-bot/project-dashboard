@@ -286,14 +286,15 @@
     "id": "spoken-adventure",
     "name": "Project 3 — Spoken Adventure (English Acquisition 5–6)",
     "status": "running",
-    "summary": "Interactive audio-driven adventure game for ages 5–6 (pre-readers). English is the world language: SEE → HEAR → DO → SAY. MVP scaffold deployed; next: mission engine + 4 worlds.",
-    "architecture": "Next.js + Tailwind mobile-first. Content-driven mission engine (worlds/chapters/missions/phrases). Web Speech for TTS (MVP). Shared Supabase Auth planned (Option A) using app_id scoping for progress.",
+    "summary": "Scene-based Spoken Adventure live: world map (4 worlds), Pirate Bay interactive hotspots, local progression, reusable scene components, animations, and autoplay ambient audio.",
+    "architecture": "Next.js app-router + Tailwind. Scene engine keeps SEE/HEAR/DO/SAY flow while hiding stepper UI. LocalStorage progression unlocks worlds. Pirate Bay includes hotspot interactions (find key, chest tap/drag open, ordered follow path), placeholder SVG character, and reusable scene frame/animation utilities.",
     "techStack": [
       "Next.js",
+      "React",
       "Tailwind",
+      "TypeScript",
       "Web Speech API (TTS)",
-      "Vercel",
-      "Supabase Auth (shared)"
+      "Vercel"
     ],
     "links": [
       {
@@ -312,10 +313,9 @@
       }
     ],
     "nextSteps": [
-      "Add progress tracking (per mission and per world) with simple local save, then wire Supabase app_id=spoken-adventure",
-      "Build world pack #2 (Magic Castle) using the same SEE→HEAR→DO→SAY content schema",
-      "Add richer SAY feedback (stars/confetti timing + optional recorded voice in future phase)",
-      "Add parent/admin content editor for mission text and action choices"
+      "Build the remaining three worlds (Dino Jungle, Space Lab, Magic Castle) with scene-specific interactions",
+      "Add persistence sync to Supabase with app-scoped profile progress",
+      "Add optional mic-based SAY scoring and kid-friendly feedback effects"
     ],
     "owners": [
       "Sheffer",
@@ -326,7 +326,8 @@
       "game",
       "language",
       "audio-first",
-      "adventure"
+      "adventure",
+      "scene-based"
     ]
   },
   {
