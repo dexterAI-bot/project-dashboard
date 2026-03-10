@@ -1,5 +1,55 @@
 [
   {
+    "id": "linkedin-progress-series",
+    "name": "Project — LinkedIn Build Log Series (OpenClaw journey)",
+    "status": "planning",
+    "summary": "A series of LinkedIn posts documenting the OpenClaw setup and all shipped projects (wins, bugs, fixes, learnings).",
+    "architecture": "Research best practices for LinkedIn writing, define a repeatable post template/skill, then draft and publish a multi-post narrative with links and screenshots.",
+    "techStack": [
+      "Writing",
+      "LinkedIn",
+      "OpenClaw",
+      "Supabase",
+      "Vercel",
+      "Tailscale"
+    ],
+    "links": [
+      {
+        "label": "Project HQ (private)",
+        "url": "https://project-hq-private.vercel.app/app"
+      },
+      {
+        "label": "Public dashboard (backup)",
+        "url": "https://dexterai-bot.github.io/project-dashboard/"
+      }
+    ],
+    "externalUrls": [
+      {
+        "label": "Kids English Coach",
+        "url": "https://kids-english-coach-app.vercel.app/app"
+      },
+      {
+        "label": "Spoken Adventure",
+        "url": "https://spoken-adventure.vercel.app"
+      }
+    ],
+    "nextSteps": [
+      "Collect timeline + key milestones across projects",
+      "Research LinkedIn post best practices (hook, formatting, cadence)",
+      "Draft 6–10 posts with a posting plan/order",
+      "Package a reusable skill/template for future LinkedIn updates"
+    ],
+    "owners": [
+      "Sheffer",
+      "DexterAI"
+    ],
+    "tags": [
+      "writing",
+      "build-in-public",
+      "openclaw"
+    ]
+  },
+  {
     "id": "cam-relay",
     "name": "Camera Relay + Last Hour Recorder",
     "status": "running",
