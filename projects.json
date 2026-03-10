@@ -32,7 +32,7 @@
     "externalUrls": [
       {
         "label": "Relay & recordings (VPN)",
-        "url": "http://100.107.108.42:8090/"
+        "url": "http://100.81.234.30:8090/"
       }
     ],
     "nextSteps": [
@@ -81,7 +81,7 @@
     "externalUrls": [
       {
         "label": "Dashboard (VPN)",
-        "url": "http://100.107.108.42:8791/"
+        "url": "http://100.81.234.30:8791/"
       }
     ],
     "nextSteps": [
