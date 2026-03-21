@@ -437,5 +437,48 @@
       "research",
       "rss"
     ]
+  },
+  {
+    "id": "panelview-survey-autopilot",
+    "name": "PanelView Survey Autopilot",
+    "status": "running",
+    "summary": "Zero-token automation: watches for new PanelView survey invite emails, notifies on Telegram with the link, then we can open/fill the survey via Chrome Relay (neutral defaults) with human review before final submit.",
+    "architecture": "macOS LaunchAgent polls Gmail via local gws OAuth; dedupes by messageId; sends Telegram notification via openclaw CLI; optional Chrome Relay flow to open and fill surveys.",
+    "techStack": [
+      "gws (Google Workspace CLI)",
+      "Python",
+      "OpenClaw CLI",
+      "Telegram",
+      "macOS launchd",
+      "Chrome Relay"
+    ],
+    "links": [
+      {
+        "label": "Skill doc",
+        "url": "~/workspace/skills/panelview-survey/SKILL.md"
+      },
+      {
+        "label": "Poll script",
+        "url": "~/workspace/tools/panelview_poll.py"
+      },
+      {
+        "label": "LaunchAgent",
+        "url": "~/Library/LaunchAgents/ai.openclaw.panelview-poller.plist"
+      }
+    ],
+    "externalUrls": [],
+    "nextSteps": [
+      "When a new invite arrives, run the Chrome Relay flow to fill it (neutral answers by default), then ask for final submit confirmation",
+      "Improve link picking heuristics if PanelView email templates change",
+      "(Optional) Add a manual 'run now' button/command to force-check and notify"
+    ],
+    "owners": [
+      "Sheffer"
+    ],
+    "tags": [
+      "automation",
+      "email",
+      "surveys"
+    ]
   }
 ]
