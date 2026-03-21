@@ -484,9 +484,9 @@
   {
     "id": "shopping-list-he",
     "name": "Shopping List (Hebrew) — Telegram + Shopping Mode",
-    "status": "blocked",
-    "summary": "Hebrew-first shopping list operated from a dedicated Telegram group. Supports adding items via messages, showing the list, and starting a ‘shopping mode’ web page with in-cart toggles and price logging. Currently blocked by unstable shopping-mode link behavior (shows ‘קישור לא תקין / פג תוקף’ intermittently).",
-    "architecture": "Vercel web UI + Vercel API. Telegram group intake handled by OpenClaw (group allowlist + requireMention=false). API intended to persist sessions/items/trips in a dedicated Supabase project (new).",
+    "status": "in-progress",
+    "summary": "Hebrew shopping list via dedicated Telegram group + shopping-mode web app. Core flows work (add/list/start shopping, in-cart toggle, finish trip), UI significantly upgraded, and persistence moved to dedicated Supabase project. Remaining issue: intermittent invalid_session from mixed token sources; plan is dedicated Telegram bot tomorrow.",
+    "architecture": "Vercel API + Vercel Web (RTL SPA). Persistence on dedicated Supabase project upfbcgsaekrebxmtkpsq. Telegram group ingestion via OpenClaw group allowlist/commands today; migration to dedicated Telegram bot + direct webhook planned for stability.",
     "techStack": [
       "Node.js (Express)",
       "Vercel",
@@ -519,15 +519,27 @@
       {
         "label": "Supabase project",
         "url": "https://supabase.com/dashboard/project/upfbcgsaekrebxmtkpsq"
+      },
+      {
+        "label": "Supabase API keys page",
+        "url": "https://supabase.com/dashboard/project/upfbcgsaekrebxmtkpsq/settings/api-keys/legacy"
+      },
+      {
+        "label": "Web UI source",
+        "url": "https://github.com/dexterAI-bot/shopping-list-he/blob/main/apps/web/index.html"
+      },
+      {
+        "label": "API source",
+        "url": "https://github.com/dexterAI-bot/shopping-list-he/blob/main/apps/api/src/index.js"
       }
     ],
     "externalUrls": [],
     "nextSteps": [
-      "Diagnose why /shop/<token> sometimes renders ‘קישור לא תקין / פג תוקף’ even when API session exists (likely stale cached web JS or token mismatch).",
-      "Add a visible debug panel in the web UI (shows token, API base URL, API response status/body) to make failures actionable.",
-      "Ensure Telegram ‘התחל קניות’ always uses the new API /api/shopping/start (no old token sources).",
-      "Only after stable: implement image->OCR flow with ‘אישור/עריכה/ביטול’.",
-      "Optional: switch web from static SPA to Next.js for better caching/versioning control."
+      "Create dedicated Telegram bot for shopping app and connect direct webhook to API (remove mixed token paths).",
+      "Finalize token source to always use API /api/shopping/start and prevent invalid_session links.",
+      "Implement image-to-item OCR flow with approve/edit/cancel in Telegram.",
+      "Add lightweight sync indicator (\"סונכרן עכשיו\") and optional optimistic UI for cart toggles.",
+      "Optional: migrate web to Next.js for stronger cache/version control."
     ],
     "tags": [
       "hebrew",
@@ -540,6 +552,19 @@
     "owners": [
       "Sheffer"
     ],
-    "notes": "\nSupabase project ref: upfbcgsaekrebxmtkpsq"
+    "notes": "\nSupabase project ref: upfbcgsaekrebxmtkpsq",
+    "latestUpdate": {
+      "when": "2026-03-22",
+      "done": [
+        "Dedicated Supabase project created and connected: upfbcgsaekrebxmtkpsq",
+        "API persistence switched from local SQLite to Supabase-backed logic",
+        "Full reset endpoint added for clean starts during development",
+        "Shopping mode redesigned (modern RTL UI)",
+        "Added category collapse, hide-in-cart mode, search, sticky summary bar",
+        "Added live sync polling (3s) and no-store cache-busting on GET requests"
+      ],
+      "currentIssue": "Some links still resolve to invalid_session when token comes from a stale/mixed path; fresh API-generated verified links work.",
+      "plan": "Tomorrow: dedicate separate Telegram bot + direct webhook for this app."
+    }
   }
 ]
