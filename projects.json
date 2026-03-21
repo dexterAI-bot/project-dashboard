@@ -515,6 +515,10 @@
       {
         "label": "DB schema",
         "url": "https://github.com/dexterAI-bot/shopping-list-he/blob/main/packages/db/schema.sql"
+      },
+      {
+        "label": "Supabase project",
+        "url": "https://supabase.com/dashboard/project/upfbcgsaekrebxmtkpsq"
       }
     ],
     "externalUrls": [],
@@ -535,6 +539,7 @@
     ],
     "owners": [
       "Sheffer"
-    ]
+    ],
+    "notes": "\nSupabase project ref: upfbcgsaekrebxmtkpsq"
   }
 ]
