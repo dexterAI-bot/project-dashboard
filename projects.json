@@ -480,5 +480,61 @@
       "email",
       "surveys"
     ]
+  },
+  {
+    "id": "shopping-list-he",
+    "name": "Shopping List (Hebrew) — Telegram + Shopping Mode",
+    "status": "blocked",
+    "summary": "Hebrew-first shopping list operated from a dedicated Telegram group. Supports adding items via messages, showing the list, and starting a ‘shopping mode’ web page with in-cart toggles and price logging. Currently blocked by unstable shopping-mode link behavior (shows ‘קישור לא תקין / פג תוקף’ intermittently).",
+    "architecture": "Vercel web UI + Vercel API. Telegram group intake handled by OpenClaw (group allowlist + requireMention=false). API intended to persist sessions/items/trips in a dedicated Supabase project (new).",
+    "techStack": [
+      "Node.js (Express)",
+      "Vercel",
+      "Supabase Postgres (new project)",
+      "Telegram Bot API (via OpenClaw)",
+      "Static SPA (RTL Hebrew)",
+      "openai-codex/gpt-5.2 (mid)"
+    ],
+    "links": [
+      {
+        "label": "GitHub repo",
+        "url": "https://github.com/dexterAI-bot/shopping-list-he"
+      },
+      {
+        "label": "API (Vercel)",
+        "url": "https://shopping-list-he-api.vercel.app"
+      },
+      {
+        "label": "Web (Shopping mode)",
+        "url": "https://shopping-list-he-web.vercel.app"
+      },
+      {
+        "label": "Spec",
+        "url": "https://github.com/dexterAI-bot/shopping-list-he/blob/main/docs/SPEC.md"
+      },
+      {
+        "label": "DB schema",
+        "url": "https://github.com/dexterAI-bot/shopping-list-he/blob/main/packages/db/schema.sql"
+      }
+    ],
+    "externalUrls": [],
+    "nextSteps": [
+      "Diagnose why /shop/<token> sometimes renders ‘קישור לא תקין / פג תוקף’ even when API session exists (likely stale cached web JS or token mismatch).",
+      "Add a visible debug panel in the web UI (shows token, API base URL, API response status/body) to make failures actionable.",
+      "Ensure Telegram ‘התחל קניות’ always uses the new API /api/shopping/start (no old token sources).",
+      "Only after stable: implement image->OCR flow with ‘אישור/עריכה/ביטול’.",
+      "Optional: switch web from static SPA to Next.js for better caching/versioning control."
+    ],
+    "tags": [
+      "hebrew",
+      "telegram",
+      "shopping",
+      "supabase",
+      "vercel",
+      "automation"
+    ],
+    "owners": [
+      "Sheffer"
+    ]
   }
 ]
