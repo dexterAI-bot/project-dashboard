@@ -103,7 +103,7 @@
     "id": "stock-dashboard",
     "name": "Stock Trading Dashboard",
     "status": "running",
-    "summary": "Real-time market simulator with bot signals, portfolio metrics, and history capture for quick mental models of the strategy.",
+    "summary": "Real-time market simulator + paper-trading bot with guardrails. UI has a persistent top status banner that explains why the bot is blocked/paused (market/news errors, stale data wall, daily loss wall) and shows connection failures.",
     "architecture": "Express server serves React-ish UI + API endpoints. Background loop fetches prices (Yahoo/stooq), logs metrics, and scaffolds a bot with configurable guards.",
     "techStack": [
       "Node.js",
@@ -135,9 +135,9 @@
       }
     ],
     "nextSteps": [
-      "Evaluate real-API throttle tolerance",
-      "Add quick trade buttons via in-dashboard actions",
-      "Wrap UI with status badges (running/backtest)"
+      "Replace remaining UI alerts with banner messages (single consistent error surface)",
+      "Add a compact debug line to the banner (bot ON/OFF, daily PnL %, total PnL %, data source, staleness)",
+      "Verify on mobile Safari/Chrome with cache-busting (?v=...) and bot toggle flows"
     ],
     "owners": [
       "Sheffer"
@@ -383,16 +383,38 @@
   {
     "id": "project-2-ai-digest",
     "name": "Project 2 — AI Tech Lead Digest",
-    "status": "planning",
-    "summary": "RSS + changelog digest pipeline for 2×/week alerts: clusters + summarize news, deliver via Telegram + archive to Markdown.",
-    "architecture": "Node.js script + SQLite cache + cron launches. Optional LLM summarizer/embeddings, Telegram + Markdown outputs, break alerts when needed.",
+    "status": "running",
+    "summary": "Twice-weekly AI newsletter (Tue+Fri 09:30 Asia/Jerusalem) + keyword-based breaking alerts. Telegram headlines link to an HTML issue page with curated summaries and source links.",
+    "architecture": "Local generator builds static HTML issues + archive index (GitHub Pages). Scheduled via macOS LaunchAgents (zero-token idle). Breaking alerts poll RSS hourly with keyword filters and send to Telegram.",
     "techStack": [
-      "Node.js",
-      "SQLite",
-      "Telegram API",
-      "LLM"
+      "Python",
+      "RSS/Atom",
+      "GitHub Pages",
+      "GitHub repo",
+      "OpenClaw CLI (message send)",
+      "macOS launchd"
     ],
     "links": [
+      {
+        "label": "GitHub repo",
+        "url": "https://github.com/dexterAI-bot/ai-tech-lead-digest"
+      },
+      {
+        "label": "Archive site (GitHub Pages)",
+        "url": "https://dexterai-bot.github.io/ai-tech-lead-digest/"
+      },
+      {
+        "label": "Sources config",
+        "url": "https://github.com/dexterAI-bot/ai-tech-lead-digest/blob/main/tools/sources.json"
+      },
+      {
+        "label": "Generator",
+        "url": "https://github.com/dexterAI-bot/ai-tech-lead-digest/blob/main/tools/generate_issue.py"
+      },
+      {
+        "label": "Breaking alerts poller",
+        "url": "https://github.com/dexterAI-bot/ai-tech-lead-digest/blob/main/tools/breaking_alerts_poll.py"
+      },
       {
         "label": "Research doc",
         "url": "~/workspace/research/project-2-ai-dev-trends-digest-plan.md"
@@ -400,17 +422,20 @@
     ],
     "externalUrls": [],
     "nextSteps": [
-      "Choose ~20 high-signal feeds and delivery cadence",
-      "Build ingest/dedupe/summarize pipeline",
-      "Wire Telegram + archive scripts + scheduler"
+      "Tune RSS source list (add/remove feeds, reduce noise) and add categories (Models/Agents/Tooling)",
+      "Improve HTML issue design: story cards with TL;DR + Why-it-matters + Action (TRY/TRACK/IGNORE)",
+      "Update Telegram message to list top headlines (each points to the issue page, plus original links inside)"
     ],
     "owners": [
       "Sheffer"
     ],
     "tags": [
-      "research",
+      "automation",
       "digest",
-      "automation"
+      "github-pages",
+      "newsletter",
+      "research",
+      "rss"
     ]
   }
 ]
