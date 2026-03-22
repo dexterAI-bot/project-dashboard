@@ -566,5 +566,46 @@
       "currentIssue": "Some links still resolve to invalid_session when token comes from a stale/mixed path; fresh API-generated verified links work.",
       "plan": "Tomorrow: dedicate separate Telegram bot + direct webhook for this app."
     }
+  },
+  {
+    "id": "wca-db-query",
+    "name": "WCA DB Query",
+    "status": "planning",
+    "summary": "Build an LLM/RAG-powered interface over the World Cube Association results database so the team can ask natural questions and return structured answers.",
+    "architecture": "Frontend (React/Next) + RAG agent + backend query service. Source data from https://www.worldcubeassociation.org/export/results and optionally cache locally in Supabase or SQLite.",
+    "techStack": [
+      "React",
+      "Next.js",
+      "RAG",
+      "Supabase/SQLite",
+      "OpenClaw agents",
+      "World Cube Association API"
+    ],
+    "links": [
+      {
+        "label": "WCA exports",
+        "url": "https://www.worldcubeassociation.org/export/results"
+      },
+      {
+        "label": "Existing stats platform",
+        "url": "https://statistics.worldcubeassociation.org/"
+      }
+    ],
+    "nextSteps": [
+      "Catalog relevant tables (competitions, records, competitors).",
+      "Prototype RAG agent that translates natural language into SQL queries against the WCA data.",
+      "Design UI with data table + prompts + update workflow.",
+      "Plan low-cost token strategy (local embeddings + LLM only for query generation)."
+    ],
+    "tags": [
+      "rag",
+      "data",
+      "cubing",
+      "db",
+      "automation"
+    ],
+    "owners": [
+      "Sheffer"
+    ]
   }
 ]
