@@ -192,7 +192,8 @@
       "operations",
       "planning",
       "tools"
-    ]
+    ],
+    "needFromSheffer": "Review the refreshed drawer/list/focus software UI and confirm if we keep the new deploy."
   },
   {
     "id": "spidey-flight",
@@ -606,7 +607,8 @@
     ],
     "owners": [
       "Sheffer"
-    ]
+    ],
+    "needFromSheffer": "Run the local WCA DB query UI on the Mac when you can and share any feedback or desired data points."
   },
   {
     "id": "trivia-arena",
@@ -651,6 +653,7 @@
       "trivia",
       "public",
       "leaderboard"
-    ]
+    ],
+    "needFromSheffer": "Play/test the live Trivia Arena preview once the QA loop finishes and confirm the public link."
   }
 ]
