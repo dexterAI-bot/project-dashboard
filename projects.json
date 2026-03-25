@@ -607,5 +607,50 @@
     "owners": [
       "Sheffer"
     ]
+  },
+  {
+    "id": "trivia-arena",
+    "name": "Trivia Arena (public game)",
+    "status": "planning",
+    "summary": "A Kahoot-style trivia game where anyone can pick a topic, answer timed multiple-choice questions, and compete on a publicly accessible leaderboard.",
+    "architecture": "Next.js (or static SPA) client + serverless API; topics stored as JSON + score logging in Supabase; scoring combines correctness + response time; leaderboard persists high scores per topic.",
+    "techStack": [
+      "Next.js",
+      "Supabase",
+      "Vercel",
+      "WebSockets (optional)",
+      "Tailwind / CSS animations"
+    ],
+    "links": [
+      {
+        "label": "Inspiration",
+        "url": "https://www.kahoot.com/"
+      },
+      {
+        "label": "Supabase project",
+        "url": "https://supabase.com/dashboard/project/jbhaleeptrllvlczuobq"
+      }
+    ],
+    "externalUrls": [
+      {
+        "label": "Project HQ (private)",
+        "url": "https://project-hq-private.vercel.app/app"
+      }
+    ],
+    "nextSteps": [
+      "Design multi-topic lobby + countdown UI inspired by Kahoot",
+      "Model scoring (correctness + response time) and leaderboard schema in Supabase",
+      "Prototype question + choice flow + animated transitions",
+      "Deploy minimal UI + connect API (score persistence + leaderboard view)"
+    ],
+    "owners": [
+      "Sheffer"
+    ],
+    "tags": [
+      "game",
+      "trivia",
+      "public",
+      "leaderboard"
+    ]
   }
 ]
